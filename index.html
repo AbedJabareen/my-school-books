@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسوعة الجغرافيا | المناخ، الموارد، والمخاطر</title>
+    <title>الجغرافيا المناخية - الصف الثاني عشر</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Noto+Kufi+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0b0f1a;
-            --bg-card: #111827;
-            --bg-card-hover: #1a2332;
-            --bg-accent: #1e2a3a;
-            --text-primary: #f1f5f9;
-            --text-secondary: #b0c4de;
-            --text-muted: #6b7f99;
-            --accent-gold: #e8b84c;
-            --accent-blue: #5b9bd5;
-            --accent-teal: #4fd1c5;
-            --accent-coral: #f07d6b;
-            --accent-purple: #a78bfa;
-            --accent-green: #6ee7b7;
-            --accent-orange: #fb923c;
-            --border-color: #2a3a4a;
-            --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
-            --shadow-md: 0 8px 30px rgba(0,0,0,0.35);
-            --shadow-sm: 0 2px 10px rgba(0,0,0,0.25);
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --radius-sm: 10px;
-            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --bg: #f6f2ea;
+            --card-bg: #ffffff;
+            --primary: #2c5f6e;
+            --primary-light: #e8f0f2;
+            --accent: #e07a5f;
+            --accent-light: #fdf0eb;
+            --text: #2d2a26;
+            --text-light: #6b6560;
+            --border: #e5ddd2;
+            --gold: #c9a227;
+            --gold-light: #fdf8e8;
+            --green: #6a994e;
+            --green-light: #f0f6ec;
+            --blue: #457b9d;
+            --blue-light: #eaf2f8;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 6px 30px rgba(0, 0, 0, 0.1);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -41,1004 +39,1916 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
-            background: var(--bg-dark);
-            font-family: 'Cairo', 'Noto Kufi Arabic', sans-serif;
-            color: var(--text-primary);
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.8;
-            letter-spacing: 0.3px;
-            overflow-x: hidden;
+            font-size: 16px;
+            direction: rtl;
         }
 
-        /* شريط التمرير */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
+            background: var(--bg);
         }
         ::-webkit-scrollbar-thumb {
-            background: #3a4a5a;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5b7a9a;
+            background: var(--primary);
+            border-radius: 4px;
         }
 
-        /* خلفية نجوم */
-        .background-particles {
-            position: fixed;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a3c4a 0%, #2c5f6e 50%, #3a7a8c 100%);
+            color: #fff;
+            padding: 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            background: radial-gradient(ellipse at 20% 20%, rgba(91,155,213,0.05) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(232,184,76,0.04) 0%, transparent 50%),
-                        radial-gradient(ellipse at 50% 50%, rgba(79,209,197,0.03) 0%, transparent 60%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-title .icon {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .header-subtitle {
+            font-size: 0.82rem;
+            opacity: 0.85;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
-        .background-particles::before {
+        /* Navigation */
+        .main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 16px;
+            position: sticky;
+            top: 68px;
+            z-index: 999;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        .main-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4px;
+            padding: 0;
+            flex-wrap: nowrap;
+        }
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            font-family: inherit;
+        }
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+            border-bottom-color: var(--primary);
+        }
+        .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+            background: var(--primary-light);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a3c4a 0%, #2c5f6e 40%, #3a7a8c 100%);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            margin-bottom: 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.15), transparent),
-                radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.1), transparent),
-                radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.12), transparent),
-                radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.08), transparent),
-                radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.15), transparent),
-                radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.1), transparent),
-                radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.07), transparent),
-                radial-gradient(1px 1px at 85% 30%, rgba(255,255,255,0.13), transparent),
-                radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,0.09), transparent),
-                radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.1), transparent);
-            background-size: 200px 200px;
-            animation: twinkle 8s ease-in-out infinite;
+            top: -60%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+        .hero::after {
+            content: '🌍';
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            font-size: 120px;
+            opacity: 0.15;
+            pointer-events: none;
+            transform: rotate(-15deg);
         }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 20px 30px 60px;
-        }
-
-        /* ===== الترويسة ===== */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-            position: relative;
-        }
-
         .hero-badge {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(232,184,76,0.2), rgba(91,155,213,0.2));
-            border: 1px solid rgba(232,184,76,0.3);
-            color: var(--accent-gold);
-            padding: 8px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 6px 16px;
             border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 550px;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            animation: fadeInDown 0.8s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f1f5f9 0%, #b0c4de 40%, #e8b84c 70%, #f1f5f9 100%);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 6s ease-in-out infinite, fadeInUp 0.8s ease;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        /* ===== شريط التنقل الجانبي ===== */
-        .sidebar-nav {
-            position: fixed;
-            top: 50%;
-            left: 15px;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #3a4a5a;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-dot:hover {
-            background: var(--accent-gold);
-            transform: scale(1.3);
-        }
-
-        .nav-dot.active {
-            background: var(--accent-gold);
-            border-color: rgba(232,184,76,0.4);
-            box-shadow: 0 0 15px rgba(232,184,76,0.4);
-        }
-
-        .nav-dot .tooltip {
-            position: absolute;
-            left: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-        }
-
-        .nav-dot:hover .tooltip {
-            opacity: 1;
-        }
-
-        /* ===== الأقسام ===== */
+        /* Unit Section */
         .unit-section {
-            margin-bottom: 60px;
-            animation: fadeInUp 0.8s ease;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .unit-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* Unit Header */
         .unit-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--border-color);
-            position: relative;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
         }
-
-        .unit-header::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 80px;
-            height: 2px;
-            background: var(--accent-gold);
-            border-radius: 2px;
-        }
-
-        .unit-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
+        .unit-number {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .unit-icon.blue { background: rgba(91,155,213,0.15); border: 1px solid rgba(91,155,213,0.3); }
-        .unit-icon.gold { background: rgba(232,184,76,0.15); border: 1px solid rgba(232,184,76,0.3); }
-        .unit-icon.coral { background: rgba(240,125,107,0.15); border: 1px solid rgba(240,125,107,0.3); }
-        .unit-icon.green { background: rgba(110,231,183,0.15); border: 1px solid rgba(110,231,183,0.3); }
-        .unit-icon.purple { background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.3); }
-
-        .unit-title {
-            font-size: 1.7rem;
-            font-weight: 800;
-            line-height: 1.4;
-        }
-
-        .unit-title small {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* ===== الدرس ===== */
-        .lesson {
-            margin-bottom: 30px;
-        }
-
-        .lesson-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-            padding: 12px 20px;
-            background: rgba(91,155,213,0.08);
-            border-right: 4px solid var(--accent-blue);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        }
-
-        /* ===== البطاقات ===== */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px 25px;
-            margin-bottom: 15px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(232,184,76,0.3);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card-title .bullet {
-            width: 8px;
-            height: 8px;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary), #3a7a8c);
+            color: #fff;
             border-radius: 50%;
-            background: var(--accent-gold);
-            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 800;
             flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(44, 95, 110, 0.35);
         }
-
-        /* ===== تعريفات ===== */
-        .definition {
-            background: rgba(91,155,213,0.07);
-            border: 1px solid rgba(91,155,213,0.25);
-            border-radius: var(--radius-sm);
-            padding: 15px 20px;
-            margin: 10px 0;
-            position: relative;
+        .unit-title-text h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
-
-        .definition .term {
-            font-weight: 700;
-            color: var(--accent-blue);
-        }
-
-        .definition .def-text {
-            color: var(--text-secondary);
-        }
-
-        /* ===== قوائم ===== */
-        .list-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            margin: 10px 0;
-        }
-
-        .list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 10px 15px;
-            background: rgba(255,255,255,0.03);
-            border-radius: var(--radius-sm);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-        }
-
-        .list-item:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(232,184,76,0.2);
-        }
-
-        .list-item .icon {
-            font-size: 1rem;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        /* ===== جدول ===== */
-        .table-wrapper {
-            overflow-x: auto;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-color);
-            margin: 15px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 600px;
-        }
-
-        thead {
-            background: rgba(91,155,213,0.15);
-        }
-
-        th {
-            padding: 14px 18px;
-            text-align: right;
-            font-weight: 700;
-            color: var(--accent-blue);
-            font-size: 0.95rem;
-            border-bottom: 2px solid var(--border-color);
-            white-space: nowrap;
-        }
-
-        td {
-            padding: 12px 18px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-secondary);
+        .unit-title-text p {
+            color: var(--text-light);
             font-size: 0.9rem;
         }
 
-        tr:last-child td {
+        /* Lesson Card */
+        .lesson-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .lesson-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .lesson-header {
+            background: linear-gradient(135deg, var(--primary-light), #f0f5f6);
+            padding: 18px 24px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+        }
+        .lesson-header:hover {
+            background: linear-gradient(135deg, #dce8ec, #e8f0f2);
+        }
+        .lesson-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .lesson-header h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+            flex: 1;
+        }
+        .lesson-toggle {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .lesson-card.open .lesson-toggle {
+            transform: rotate(180deg);
+        }
+        .lesson-body {
+            display: none;
+            padding: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .lesson-card.open .lesson-body {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Content Elements */
+        .activity-box {
+            background: var(--gold-light);
+            border-right: 4px solid var(--gold);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-weight: 600;
+        }
+        .activity-box .label {
+            display: inline-block;
+            background: var(--gold);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: var(--blue-light);
+            border-right: 4px solid var(--blue);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .info-box .label {
+            display: inline-block;
+            background: var(--blue);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .success-box {
+            background: var(--green-light);
+            border-right: 4px solid var(--green);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .success-box .label {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .danger-box {
+            background: var(--accent-light);
+            border-right: 4px solid var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .danger-box .label {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* Answer Highlight */
+        .answer-highlight {
+            background: #f8f5f0;
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            margin: 12px 0;
+            border: 1px dashed var(--border);
+        }
+        .answer-highlight strong {
+            color: var(--primary);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+        th {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 16px;
+            font-weight: 700;
+            text-align: right;
+            white-space: nowrap;
+        }
+        td {
+            padding: 11px 16px;
+            border-bottom: 1px solid var(--border);
+            text-align: right;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background: #faf7f2;
+        }
+        tr:hover {
+            background: var(--primary-light);
+        }
+
+        /* MC Questions */
+        .mc-question {
+            background: #fafafa;
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            margin: 14px 0;
+            border: 1px solid #eee;
+        }
+        .mc-question .q {
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .mc-question .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .mc-question .option {
+            padding: 6px 14px;
+            background: #fff;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            border: 1px solid #ddd;
+        }
+        .mc-question .option.correct {
+            background: var(--green-light);
+            border-color: var(--green);
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* List Styles */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .styled-list li {
+            padding: 8px 0 8px 32px;
+            position: relative;
+            border-bottom: 1px solid #f0ebe4;
+        }
+        .styled-list li:last-child {
             border-bottom: none;
         }
-
-        tr:hover td {
-            background: rgba(255,255,255,0.02);
+        .styled-list li::before {
+            content: '◈';
+            position: absolute;
+            right: 4px;
+            top: 8px;
+            color: var(--primary);
+            font-size: 0.8rem;
         }
 
-        /* ===== أنواع مميزة ===== */
-        .highlight-box {
+        /* Calculation Box */
+        .calc-box {
+            background: linear-gradient(135deg, #f0f6ec, #e8f5e9);
+            border: 2px solid var(--green);
             border-radius: var(--radius-sm);
-            padding: 15px 20px;
-            margin: 10px 0;
-            border: 1px solid;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        .calc-box .calc-step {
+            padding: 6px 0;
+            font-weight: 500;
+        }
+        .calc-box .calc-result {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--green);
+            padding-top: 10px;
+            border-top: 2px dashed var(--green);
+            margin-top: 10px;
         }
 
-        .highlight-blue {
-            background: rgba(91,155,213,0.1);
-            border-color: rgba(91,155,213,0.3);
-            color: #a8c8e8;
+        /* Section Title */
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 24px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+        .section-title-sm {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 16px 0 8px;
         }
 
-        .highlight-gold {
-            background: rgba(232,184,76,0.1);
-            border-color: rgba(232,184,76,0.3);
-            color: #e8d5a8;
+        /* Print Button */
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+        .print-btn:hover {
+            background: #1a3c4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(44, 95, 110, 0.35);
         }
 
-        .highlight-green {
-            background: rgba(110,231,183,0.1);
-            border-color: rgba(110,231,183,0.3);
-            color: #b5e8d5;
-        }
-
-        .highlight-coral {
-            background: rgba(240,125,107,0.1);
-            border-color: rgba(240,125,107,0.3);
-            color: #f0b5a8;
-        }
-
-        /* ===== تذييل ===== */
+        /* Footer */
         .footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
+            padding: 24px;
+            color: var(--text-light);
             font-size: 0.85rem;
+            border-top: 1px solid var(--border);
             margin-top: 40px;
         }
 
-        /* ===== حركات ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== استجابة ===== */
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 15px 16px 40px;
+                padding: 16px 12px 60px;
+            }
+            .hero {
+                padding: 28px 20px;
             }
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
-            .unit-title {
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .hero-stats {
+                gap: 8px;
+            }
+            .hero-stat {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+            .unit-title-text h2 {
                 font-size: 1.3rem;
             }
-            .lesson-title {
-                font-size: 1.15rem;
-                padding: 10px 15px;
+            .lesson-header {
+                padding: 14px 16px;
             }
-            .card {
-                padding: 15px 18px;
+            .lesson-header h3 {
+                font-size: 1rem;
             }
-            .sidebar-nav {
-                left: 8px;
+            .lesson-body {
+                padding: 16px;
             }
-            .nav-dot {
-                width: 9px;
-                height: 9px;
+            .main-nav-inner {
+                gap: 0;
             }
-            .list-grid {
-                grid-template-columns: 1fr;
+            .nav-link {
+                padding: 10px 12px;
+                font-size: 0.78rem;
+            }
+            th,
+            td {
+                padding: 8px 10px;
+                font-size: 0.82rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+            .hero-badge {
+                font-size: 0.7rem;
+            }
+            .unit-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .unit-title-text h2 {
+                font-size: 1.1rem;
+            }
+            .nav-link {
+                padding: 8px 10px;
+                font-size: 0.72rem;
+            }
+            .calc-box {
+                padding: 14px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .main-nav,
+            .print-btn,
+            .header {
+                display: none;
+            }
+            .unit-section {
+                display: block !important;
+            }
+            .lesson-card .lesson-body {
+                display: block !important;
+            }
+            body {
+                background: #fff;
+                font-size: 12pt;
+            }
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+            .hero {
+                background: #f0f0f0;
+                color: #000;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .hero::before,
+            .hero::after {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="background-particles"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-title">
+                <span class="icon">🌍</span>
+                <span>الجغرافيا المناخية
+                    <br>
+                    <span class="header-subtitle">كتاب الدراسات الجغرافية - الصف الثاني عشر</span>
+                </span>
+            </div>
+            <button class="print-btn" onclick="window.print()">🖨️ طباعة الصفحة</button>
+        </div>
+    </header>
 
-    <!-- شريط التنقل -->
-    <nav class="sidebar-nav" id="sidebarNav">
-        <div class="nav-dot active" data-unit="1"><span class="tooltip">الجغرافيا المناخية</span></div>
-        <div class="nav-dot" data-unit="2"><span class="tooltip">الموارد الطبيعية والبشرية</span></div>
-        <div class="nav-dot" data-unit="3"><span class="tooltip">مخاطر تهدد الأرض</span></div>
-        <div class="nav-dot" data-unit="4"><span class="tooltip">السياحة</span></div>
-        <div class="nav-dot" data-unit="5"><span class="tooltip">الجغرافيا السياسية</span></div>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="main-nav-inner" id="navInner">
+            <!-- Nav links will be generated by JS -->
+        </div>
     </nav>
 
+    <!-- Main Content -->
     <div class="container">
 
-        <!-- الترويسة -->
-        <header class="hero">
-            <span class="hero-badge">📚 دليل شامل</span>
-            <h1>موسوعة الجغرافيا</h1>
-            <p>استكشف وحدات الجغرافيا المناخية والموارد الطبيعية والبشرية ومخاطر الأرض والسياحة والجغرافيا السياسية في تصميم أنيق وحديث.</p>
-        </header>
+        <!-- Hero -->
+        <div class="hero">
+            <span class="hero-badge">📚 مرجع شامل لجميع الإجابات</span>
+            <h1>إجابات كتاب الدراسات الجغرافية</h1>
+            <p>مراجعة شاملة ومنظمة لجميع وحدات الكتاب – الجغرافيا المناخية، الموارد الطبيعية، المخاطر، السياحة، والجغرافيا السياسية.</p>
+            <div class="hero-stats">
+                <span class="hero-stat">📖 5 وحدات دراسية</span>
+                <span class="hero-stat">📝 20+ درساً</span>
+                <span class="hero-stat">✅ إجابات نموذجية</span>
+                <span class="hero-stat">📊 جداول ورسوم</span>
+            </div>
+        </div>
 
-        <!-- ==================== الوحدة الأولى ==================== -->
-        <section class="unit-section" id="unit1">
+        <!-- =============== UNIT 1 =============== -->
+        <div class="unit-section active" id="unit1">
             <div class="unit-header">
-                <div class="unit-icon blue">🌍</div>
-                <h2 class="unit-title">الجغرافيا المناخية <small>المناخ وعناصره والأقاليم المناخية</small></h2>
-            </div>
-
-            <!-- الدرس الأول -->
-            <div class="lesson">
-                <h3 class="lesson-title">📖 الدرس الأول: المناخ وعناصره</h3>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> تعريفات أساسية</div>
-                    <div class="definition">
-                        <span class="term">الجغرافيا المناخية:</span>
-                        <span class="def-text">فرع من فروع الجغرافيا الطبيعية يدرس الغلاف الجوي وعناصر المناخ والطقس.</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">الطقس:</span>
-                        <span class="def-text">حالة الجو لمنطقة محددة خلال فترة قصيرة (يوم، يومين، أسبوع على الأكثر).</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">المناخ:</span>
-                        <span class="def-text">متوسطات عناصر المناخ المختلفة لإقليم جغرافي معين لفترة لا تقل عن 35 سنة.</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الإشعاع الشمسي</div>
-                    <p style="color:var(--text-secondary); margin-bottom:10px;">ينقسم الإشعاع الشمسي إلى قسمين:</p>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌈</span> <span><strong>الأشعة المرئية:</strong> ألوان الطيف – 0.4–0.7 ميكرون – تشكل 45%</span></div>
-                        <div class="list-item"><span class="icon">🔥</span> <span><strong>أشعة تحت الحمراء:</strong> أمواج طويلة – تشكل 46%</span></div>
-                        <div class="list-item"><span class="icon">⚡</span> <span><strong>أشعة قصيرة جداً:</strong> جاما، سينية، فوق بنفسجية – 9%</span></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> العوامل المؤثرة في درجة الحرارة</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">📍</span> الموقع بالنسبة لدوائر العرض</div>
-                        <div class="list-item"><span class="icon">⛰️</span> الارتفاع عن سطح البحر (0.6°م/100م)</div>
-                        <div class="list-item"><span class="icon">🌊</span> الحرارة النوعية (اليابسة أسرع تسخيناً وتبريداً)</div>
-                        <div class="list-item"><span class="icon">🏖️</span> القرب والبعد من المسطحات المائية</div>
-                        <div class="list-item"><span class="icon">🌡️</span> التيارات المائية الدافئة والباردة</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الضغط الجوي</div>
-                    <div class="definition">
-                        <span class="term">التعريف:</span>
-                        <span class="def-text">وزن عمود الهواء على وحدة المساحة. قيمته عند سطح البحر: 76 سم زئبق = 1013 مليبار.</span>
-                    </div>
-                    <p style="color:var(--text-secondary); margin:10px 0 5px;"><strong>نطاقات الضغط الجوي:</strong></p>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🔴</span> منخفض استوائي</div>
-                        <div class="list-item"><span class="icon">🔵</span> مرتفع شبه مداري (30°)</div>
-                        <div class="list-item"><span class="icon">🔴</span> منخفض شبه قطبي (60°)</div>
-                        <div class="list-item"><span class="icon">🔵</span> مرتفع قطبي (90°)</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الرياح</div>
-                    <p style="color:var(--text-secondary); margin-bottom:10px;"><strong>أنواع الرياح:</strong></p>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌬️</span> <strong>دائمة:</strong> تجارية، غربية، شرقية قطبية</div>
-                        <div class="list-item"><span class="icon">🍃</span> <strong>موسمية:</strong> تغير اتجاهها حسب الفصل</div>
-                        <div class="list-item"><span class="icon">🌪️</span> <strong>محلية:</strong> نسيم البر والبحر، الخماسين، السموم</div>
-                    </div>
+                <div class="unit-number">1</div>
+                <div class="unit-title-text">
+                    <h2>الوحدة الأولى: الجغرافيا المناخية</h2>
+                    <p>دراسة عناصر المناخ والطقس وتأثيرها على مظاهر الحياة</p>
                 </div>
             </div>
 
-            <!-- الدرس الثاني -->
-            <div class="lesson">
-                <h3 class="lesson-title">💧 الدرس الثاني: عناصر المناخ الرطبة والاضطرابات الجوية</h3>
-
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الرطوبة والتبخر والتكاثف</div>
-                    <div class="definition">
-                        <span class="term">الرطوبة:</span>
-                        <span class="def-text">كمية بخار الماء في الهواء.</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">التبخر:</span>
-                        <span class="def-text">تحول الماء من الحالة السائلة إلى الغازية.</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">التكاثف:</span>
-                        <span class="def-text">تحول بخار الماء إلى قطرات أو بلورات ثلجية (الندى، الضباب، الغيوم).</span>
-                    </div>
+            <!-- Lesson 1.1 -->
+            <div class="lesson-card open" id="lesson1-1">
+                <div class="lesson-header" onclick="toggleLesson('lesson1-1')">
+                    <span class="lesson-icon">🌡️</span>
+                    <h3>الدرس الأول: المناخ وعناصره (الإشعاع الشمسي، الحرارة، الضغط الجوي، الرياح)</h3>
+                    <span class="lesson-toggle">▼</span>
                 </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): اعتبار الجغرافيا المناخية من فروع الجغرافيا الطبيعية</h4>
+                    <p>الجغرافيا المناخية تدرس الغلاف الجوي وعناصر المناخ والطقس وتأثيرها على مظاهر الحياة.</p>
+                    <p><strong>نستنتج العناصر التي اشتمل عليها مفهوم الجغرافيا المناخية:</strong></p>
+                    <ul class="styled-list">
+                        <li>الإشعاع الشمسي</li>
+                        <li>الحرارة</li>
+                        <li>الضغط الجوي</li>
+                        <li>الرياح</li>
+                        <li>التبخر</li>
+                        <li>الرطوبة</li>
+                        <li>مظاهر التكاثف</li>
+                        <li>الاضطرابات الجوية</li>
+                    </ul>
+                    <p><strong>نناقش اهتمام الإنسان بدراسة أحوال الطقس والمناخ:</strong></p>
+                    <ul class="styled-list">
+                        <li>لمعرفة أحوال الطقس اليومية للتخطيط للأنشطة المختلفة</li>
+                        <li>للتكيف مع الظروف المناخية</li>
+                        <li>للاستفادة من الموارد الطبيعية</li>
+                        <li>لتجنب مخاطر الظواهر الجوية</li>
+                    </ul>
 
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أنواع الأمطار</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">☀️</span> <strong>تصعيدية (حملية):</strong> في المناطق الحارة</div>
-                        <div class="list-item"><span class="icon">⛰️</span> <strong>تضاريسية (جبلية):</strong> على المرتفعات</div>
-                        <div class="list-item"><span class="icon">🌧️</span> <strong>منخفضات جوية (جبهية):</strong> التقاء كتل مختلفة</div>
+                    <h4 class="section-title-sm">نشاط (2): الحالات التي يتعرض لها الإشعاع الشمسي</h4>
+                    <div class="activity-box">
+                        <span class="label">📌 الإجابة</span>
+                        <p>الامتصاص، الانعكاس، التشتت</p>
+                    </div>
+                    <p><strong>ثلاثة أمثلة أخرى على معيقات تخفف من وصول الأشعة لسطح الأرض:</strong></p>
+                    <ul class="styled-list">
+                        <li>الغيوم الكثيفة</li>
+                        <li>الغبار والعوالق في الجو</li>
+                        <li>الغازات في الغلاف الجوي</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">نشاط (3): المناطق الأكثر والأقل تعرضاً للإشعاع الشمسي</h4>
+                    <div class="info-box">
+                        <span class="label">📌 الإجابة</span>
+                        <p><strong>أكثر المناطق تعرضاً:</strong> المناطق الاستوائية (حول خط الاستواء)</p>
+                        <p><strong>أقل المناطق تعرضاً:</strong> المناطق القطبية (الشمالية والجنوبية)</p>
+                    </div>
+
+                    <h4 class="section-title-sm">المسألة الحسابية (صفحة 14)</h4>
+                    <div class="calc-box">
+                        <p><strong>المعطيات:</strong></p>
+                        <p class="calc-step">• درجة الحرارة في مدينة يافا (30م فوق سطح البحر) = 20°م</p>
+                        <p class="calc-step">• القدس على ارتفاع 900م</p>
+                        <p class="calc-step">• كل 1000م ينخفض بمقدار 6.5 درجة مئوية (المعدل الطبيعي)</p>
+                        <hr style="border-color: #c8e6c9; margin: 12px 0;">
+                        <p class="calc-step"><strong>الخطوة 1:</strong> الفرق في الارتفاع = 900 - 30 = 870 متر</p>
+                        <p class="calc-step"><strong>الخطوة 2:</strong> الانخفاض في الحرارة = (870 ÷ 1000) × 6.5 = 5.655 درجة</p>
+                        <p class="calc-step"><strong>الخطوة 3:</strong> درجة الحرارة في القدس = 20 - 5.655 = 14.345 درجة مئوية تقريباً</p>
+                        <div class="calc-result">✅ النتيجة النهائية: درجة الحرارة في القدس ≈ 14.35°م</div>
+                    </div>
+
+                    <h4 class="section-title-sm">نشاط (6): الضغط المرتفع والمنخفض</h4>
+                    <div class="activity-box">
+                        <span class="label">📌 الإجابة</span>
+                        <p><strong>مناطق الضغط المرتفع:</strong> المناطق الباردة</p>
+                        <p><strong>مناطق الضغط المنخفض:</strong> المناطق الحارة</p>
+                        <p><strong>العلاقة بين درجة الحرارة والضغط الجوي:</strong> علاقة عكسية – كلما ارتفعت درجة الحرارة، انخفض الضغط الجوي، والعكس صحيح.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس الثالث -->
-            <div class="lesson">
-                <h3 class="lesson-title">☀️ الدرس الثالث: الأقاليم الحارة</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أقسام الأقاليم الحارة</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌴</span> الإقليم الاستوائي</div>
-                        <div class="list-item"><span class="icon">🌵</span> الإقليم المداري</div>
-                        <div class="list-item"><span class="icon">🌾</span> الإقليم الموسمي</div>
-                        <div class="list-item"><span class="icon">🏜️</span> إقليم الصحاري الحارة</div>
+            <!-- Lesson 1.2 -->
+            <div class="lesson-card" id="lesson1-2">
+                <div class="lesson-header" onclick="toggleLesson('lesson1-2')">
+                    <span class="lesson-icon">💧</span>
+                    <h3>الدرس الثاني: عناصر المناخ الرطبة والاضطرابات الجوية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">أسئلة الاختيار من متعدد (صفحة 35)</h4>
+
+                    <div class="mc-question">
+                        <p class="q">1. عن ماذا يعبر الشكل الآتي؟ (أمطار تضاريسية)</p>
+                        <div class="options">
+                            <span class="option">أ) أمطار إعصارية</span>
+                            <span class="option correct">ب) أمطار تضاريسية ✓</span>
+                            <span class="option">ج) أمطار جبهية</span>
+                            <span class="option">د) رذاذ</span>
+                        </div>
                     </div>
-                    <div class="definition" style="margin-top:10px;">
-                        <span class="term">الإقليم الاستوائي:</span>
-                        <span class="def-text">بين خط الاستواء و10° – حار ماطر طوال العام – غابات كثيفة – تربة لاتيريتية.</span>
+                    <div class="mc-question">
+                        <p class="q">2. ما المفهوم الذي يعبر عن الهواء المتجانس من حيث خصائصه؟</p>
+                        <div class="options">
+                            <span class="option">أ) جبهة هوائية</span>
+                            <span class="option">ب) إعصار</span>
+                            <span class="option correct">ج) كتلة هوائية ✓</span>
+                            <span class="option">د) ضغط جوي</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">3. لأي جبهة هوائية يرمز الشكل الآتي؟</p>
+                        <div class="options">
+                            <span class="option correct">أ) جبهة هوائية باردة ✓</span>
+                            <span class="option">ب) جبهة هوائية دافئة</span>
+                            <span class="option">ج) جبهة هوائية مستقرة</span>
+                            <span class="option">د) جبهة هوائية رطبة</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">4. ما الذي ينتج عن تمدد الهواء وتقلصه بشكل مفاجئ؟</p>
+                        <div class="options">
+                            <span class="option">أ) البرق</span>
+                            <span class="option">ب) المطر</span>
+                            <span class="option correct">ج) الرعد ✓</span>
+                            <span class="option">د) الضباب</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">5. بماذا تمتاز المرحلة الثالثة من العاصفة الرعدية؟</p>
+                        <div class="options">
+                            <span class="option">أ) اشتداد التيارات الصاعدة</span>
+                            <span class="option correct">ب) توقف التيارات الصاعدة وتلاشي الغيوم ✓</span>
+                            <span class="option">ج) بداية هطول الأمطار</span>
+                            <span class="option">د) تكون الغيوم الركامية</span>
+                        </div>
+                    </div>
+
+                    <h4 class="section-title-sm">السؤال الثاني: العوامل التي تتوقف عليها عملية التبخر</h4>
+                    <div class="answer-highlight">
+                        <ul class="styled-list">
+                            <li><strong>درجة الحرارة:</strong> كلما ارتفعت زاد التبخر</li>
+                            <li><strong>سرعة الرياح:</strong> كلما زادت سرعتها زاد التبخر</li>
+                            <li><strong>الرطوبة النسبية:</strong> كلما قلت زاد التبخر</li>
+                            <li><strong>مساحة سطح الماء:</strong> كلما كبرت زاد التبخر</li>
+                            <li><strong>الضغط الجوي:</strong> كلما قل زاد التبخر</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="section-title-sm">السؤال الثالث: كيفية حدوث الضباب والندى</h4>
+                    <div class="info-box">
+                        <span class="label">🌫️ الضباب</span>
+                        <ul class="styled-list">
+                            <li>يحدث عندما يتكاثف بخار الماء في الطبقات السفلى من الغلاف الجوي قرب سطح الأرض</li>
+                            <li>ينتج عن تبريد الهواء الرطب حتى درجة الندى</li>
+                            <li>يتكون من قطرات مائية دقيقة معلقة في الهواء</li>
+                        </ul>
+                    </div>
+                    <div class="info-box">
+                        <span class="label">💧 الندى</span>
+                        <ul class="styled-list">
+                            <li>يتكون عندما تبرد الأرض ليلاً وتفقد حرارتها بالإشعاع</li>
+                            <li>يبرد الهواء الملامس لسطح الأرض حتى درجة الندى</li>
+                            <li>يتكاثف بخار الماء على الأسطح الباردة (النباتات، السيارات، الأسطح المعدنية)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس الرابع -->
-            <div class="lesson">
-                <h3 class="lesson-title">🌿 الدرس الرابع: الأقاليم المعتدلة</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> إقليم البحر المتوسط</div>
-                    <p style="color:var(--text-secondary);">الموقع: بين 30°–45° – حار جاف صيفاً، معتدل ممطر شتاءً – أمطار 400–600 مم/سنة – غطاء نباتي: غابات متوسطة، شجيرات.</p>
-                    <div class="highlight-box highlight-gold" style="margin-top:10px;">
-                        <strong>🇵🇸 فلسطين نموذجاً:</strong> تنتمي لمناخ البحر المتوسط. العوامل المؤثرة: مؤثرات البحر المتوسط، المرتفعات الجبلية، الأغوار (ظل المطر)، القرب من المؤثرات الصحراوية (النقب).
+            <!-- Lesson 1.3 -->
+            <div class="lesson-card" id="lesson1-3">
+                <div class="lesson-header" onclick="toggleLesson('lesson1-3')">
+                    <span class="lesson-icon">🌴</span>
+                    <h3>الدرس الثالث: الأقاليم الحارة في العالم</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): الامتداد الجغرافي للمناخ الاستوائي</h4>
+                    <ul class="styled-list">
+                        <li>يمتد بين دائرتي عرض 5° شمالاً و5° جنوباً تقريباً</li>
+                        <li>يشمل: حوض الأمازون، حوض الكونغو، جنوب شرق آسيا (إندونيسيا)</li>
+                    </ul>
+                    <h4 class="section-title-sm">وصف وتفسير الغطاء النباتي في هذا الإقليم:</h4>
+                    <div class="success-box">
+                        <span class="label">🌿 الغابات الاستوائية</span>
+                        <ul class="styled-list">
+                            <li>تتميز بكثافة أشجارها وضخامتها وارتفاعها (يصل إلى 60 متراً)</li>
+                            <li>أشجارها دائمة الخضرة وعريضة الأوراق</li>
+                            <li>تنتشر النباتات المتسلقة والطفيليات</li>
+                            <li>أمثلة: الأبنوس، المطاط، الماهوجني</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- الدرس الخامس -->
-            <div class="lesson">
-                <h3 class="lesson-title">❄️ الدرس الخامس: الأقاليم الباردة</h3>
-                <div class="card">
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🧊</span> إقليم التندرا</div>
-                        <div class="list-item"><span class="icon">🌲</span> إقليم التايغا (الغابات الصنوبرية)</div>
-                        <div class="list-item"><span class="icon">🏔️</span> إقليم الجليد الدائم</div>
-                    </div>
+            <!-- Lesson 1.4 -->
+            <div class="lesson-card" id="lesson1-4">
+                <div class="lesson-header" onclick="toggleLesson('lesson1-4')">
+                    <span class="lesson-icon">🌊</span>
+                    <h3>الدرس الرابع: الأقاليم المعتدلة</h3>
+                    <span class="lesson-toggle">▼</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- ==================== الوحدة الثانية ==================== -->
-        <section class="unit-section" id="unit2">
-            <div class="unit-header">
-                <div class="unit-icon gold">⛏️</div>
-                <h2 class="unit-title">الموارد الطبيعية والبشرية <small>المعادن، الطاقة، النبات، والبشر</small></h2>
-            </div>
-
-            <div class="lesson">
-                <h3 class="lesson-title">📦 الدرس الأول: الموارد الطبيعية</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> تصنيف الموارد الطبيعية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌱</span> <strong>عضوية:</strong> نباتية، حيوانية</div>
-                        <div class="list-item"><span class="icon">🪨</span> <strong>غير عضوية:</strong> معادن، صخور، مياه</div>
-                        <div class="list-item"><span class="icon">♻️</span> <strong>متجددة:</strong> الشمس، الرياح، المياه، الغابات</div>
-                        <div class="list-item"><span class="icon">🛢️</span> <strong>غير متجددة:</strong> النفط، الفحم، المعادن</div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): الامتداد الفلكي والجغرافي لمناخ إقليم البحر المتوسط</h4>
+                    <ul class="styled-list">
+                        <li>يمتد بين دائرتي عرض 30° - 45° شمالاً وجنوباً</li>
+                        <li>يتركز في حوض البحر المتوسط</li>
+                        <li>يمتد في: السواحل الغربية لآسيا، جنوب أوروبا، شمال غرب أفريقيا</li>
+                        <li>يمتد بعيداً عن حوض البحر المتوسط في: جنوب غرب أفريقيا (الكاب)، كاليفورنيا، وسط تشيلي، جنوب غرب وجنوب شرق أستراليا</li>
+                    </ul>
+                    <p><strong>سبب تسمية إقليم البحر المتوسط:</strong> لأنه يتركز في منطقة حوض البحر المتوسط</p>
+                    <p><strong>دول تقع في مناخ البحر المتوسط:</strong></p>
+                    <div class="answer-highlight">
+                        <p>فلسطين، لبنان، سوريا، الأردن، مصر (الساحل الشمالي)، ليبيا، تونس، الجزائر، المغرب، إسبانيا، فرنسا، إيطاليا، اليونان، تركيا</p>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> العوامل المؤثرة في استغلال الموارد</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">💻</span> التقدم التكنولوجي</div>
-                        <div class="list-item"><span class="icon">💰</span> توفر رأس المال</div>
-                        <div class="list-item"><span class="icon">⚙️</span> توظيف المعدات التقنية</div>
-                        <div class="list-item"><span class="icon">📍</span> طبيعة تواجد الموارد</div>
-                        <div class="list-item"><span class="icon">🕊️</span> الاستقرار السياسي</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lesson">
-                <h3 class="lesson-title">🪨 الدرس الثاني: الموارد المعدنية الطبيعية</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الثروات المعدنية في فلسطين</div>
+                    <p><strong>تعليل وجود دول في مناخ البحر المتوسط رغم بعدها عن حوض البحر المتوسط:</strong></p>
+                    <ul class="styled-list">
+                        <li>بسبب تشابه الظروف المناخية في مناطق أخرى من العالم</li>
+                        <li>وجود تيارات بحرية دافئة تؤثر على تلك المناطق</li>
+                        <li>موقعها بين دائرتي العرض المناسبتين (30° - 45°)</li>
+                        <li>وجود جبال تعترض الرياح الرطبة</li>
+                    </ul>
+                    <h4 class="section-title-sm">عوامل مؤثرة في مناخ فلسطين:</h4>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>المورد</th>
-                                    <th>المواقع</th>
+                                    <th>العامل</th>
+                                    <th>التأثير</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>مؤثرات البحر المتوسط</td>
+                                    <td>جعلت مناخ السهل الساحلي معتدلاً صيفاً وشتاءً، وزادت كمية الأمطار</td>
+                                </tr>
+                                <tr>
+                                    <td>المرتفعات الجبلية</td>
+                                    <td>أدت لاعتدال الحرارة صيفاً وانخفاضها شتاءً، وزيادة الأمطار على السفوح الغربية</td>
+                                </tr>
+                                <tr>
+                                    <td>الأغوار</td>
+                                    <td>انخفاضها عن سطح البحر أدى لارتفاع الحرارة صيفاً ودفئها شتاءً، وقلة الأمطار بسبب ظل المطر</td>
+                                </tr>
+                                <tr>
+                                    <td>قرب جنوب فلسطين من المؤثرات المدارية</td>
+                                    <td>جعل مناخه صحراوياً (صحراء النقب)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="section-title-sm">نشاط (نهاية الدرس):</h4>
+                    <ul class="styled-list">
+                        <li><strong>امتداد السهل الساحلي الفلسطيني:</strong> من رأس الناقورة شمالاً إلى غزة جنوباً</li>
+                        <li><strong>امتداد السلاسل الجبلية:</strong> من الجليل شمالاً إلى الخليل جنوباً (بطول حوالي 150 كم)</li>
+                        <li><strong>امتداد الغور:</strong> من بحيرة طبريا شمالاً إلى البحر الميت جنوباً</li>
+                        <li><strong>حدود فلسطين:</strong> حدود الانتداب البريطاني عام 1948</li>
+                        <li><strong>عاصمة دولة فلسطين:</strong> القدس</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 1.5 -->
+            <div class="lesson-card" id="lesson1-5">
+                <div class="lesson-header" onclick="toggleLesson('lesson1-5')">
+                    <span class="lesson-icon">❄️</span>
+                    <h3>الدرس الخامس: الأقاليم الباردة</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <div class="info-box">
+                        <span class="label">📌 ملاحظة</span>
+                        <p>لم ترد أسئلة محددة في هذا الدرس في النص المرفق.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============== UNIT 2 =============== -->
+        <div class="unit-section" id="unit2">
+            <div class="unit-header">
+                <div class="unit-number">2</div>
+                <div class="unit-title-text">
+                    <h2>الوحدة الثانية: الموارد الطبيعية والبشرية</h2>
+                    <p>دراسة الموارد الطبيعية والمعدنية والطاقة والنباتية والبشرية</p>
+                </div>
+            </div>
+
+            <!-- Lesson 2.1 -->
+            <div class="lesson-card open" id="lesson2-1">
+                <div class="lesson-header" onclick="toggleLesson('lesson2-1')">
+                    <span class="lesson-icon">🌍</span>
+                    <h3>الدرس الأول: الموارد الطبيعية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): أمثلة على موارد بيئية</h4>
+                    <div class="answer-highlight">
+                        <p>الماء، التربة، الهواء، النباتات، الحيوانات، المعادن، النفط، الغاز الطبيعي، الفحم</p>
+                    </div>
+                    <p><strong>أغلفة كوكب الأرض التي تحوي الموارد الطبيعية:</strong></p>
+                    <ul class="styled-list">
+                        <li><strong>الغلاف الصخري:</strong> اليابسة والصخور والمعادن</li>
+                        <li><strong>الغلاف المائي:</strong> المسطحات المائية والكائنات فيها</li>
+                        <li><strong>الغلاف الحيوي:</strong> النباتات والحيوانات</li>
+                        <li><strong>الغلاف الجوي:</strong> الهواء والغازات</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">نشاط (4): استراتيجيات الحفاظ على الموارد وتنميتها</h4>
+                    <div class="success-box">
+                        <span class="label">🌱 مقترحات للحفاظ على الموارد</span>
+                        <ul class="styled-list">
+                            <li>سن قوانين تحمي الموارد الطبيعية من الاستنزاف</li>
+                            <li>التوعية البيئية للمواطنين بأهمية الموارد</li>
+                            <li>استخدام التكنولوجيا الحديثة في استغلال الموارد</li>
+                            <li>إعادة التدوير والاستفادة من النفايات</li>
+                            <li>زراعة الأشجار وحماية الغابات</li>
+                            <li>ترشيد استهلاك المياه والطاقة</li>
+                            <li>دعم البحث العلمي لإيجاد بدائل للموارد غير المتجددة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson 2.2 -->
+            <div class="lesson-card" id="lesson2-2">
+                <div class="lesson-header" onclick="toggleLesson('lesson2-2')">
+                    <span class="lesson-icon">⛏️</span>
+                    <h3>الدرس الثاني: الموارد المعدنية الطبيعية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">العوامل المؤثرة في توزيع الموارد المعدنية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>نوع الصخور:</strong> صخور نارية (ذهب، نحاس، فضة)، صخور رسوبية (نفط، غاز، مياه جوفية)، صخور متحولة (ذهب، نحاس)</li>
+                        <li><strong>عوامل التعرية:</strong> النحت، النقل، الإرساب</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">نشاط (2): توزيع الثروات المعدنية في فلسطين</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المورد المعدني</th>
+                                    <th>مكان التواجد</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الأملاح المعدنية</td>
+                                    <td>البحر الميت (بوتاسيوم، صوديوم)</td>
+                                </tr>
+                                <tr>
+                                    <td>الفوسفات</td>
+                                    <td>أريحا، النبي موسى، غرب بيت لحم، النقب</td>
+                                </tr>
+                                <tr>
+                                    <td>الحديد</td>
+                                    <td>وادي الرمن (النقب)، وادي الجرافي</td>
+                                </tr>
+                                <tr>
+                                    <td>الحجر الجيري</td>
+                                    <td>معظم جبال فلسطين (قباطية، جماعين، الشيوخ)</td>
+                                </tr>
+                                <tr>
+                                    <td>البترول</td>
+                                    <td>غرب البحر الميت، بحيرة طبريا، النقب، اللطرون، رنتيس</td>
+                                </tr>
+                                <tr>
+                                    <td>الغاز الطبيعي</td>
+                                    <td>الساحل الفلسطيني بين عسقلان وغزة</td>
+                                </tr>
+                                <tr>
+                                    <td>اليورانيوم</td>
+                                    <td>صحراء النقب</td>
+                                </tr>
+                                <tr>
+                                    <td>الصخور الزيتية</td>
+                                    <td>قرب أريحا، وسط النقب</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title-sm">ضعف استغلال الشعب الفلسطيني لثرواته المعدنية:</h4>
+                    <div class="danger-box">
+                        <span class="label">⚠️ الأسباب</span>
+                        <ul class="styled-list">
+                            <li>بسبب الاحتلال الإسرائيلي وسيطرته على الموارد</li>
+                            <li>عدم وجود سيادة كاملة على الأراضي</li>
+                            <li>القيود المفروضة على التنقيب والاستخراج</li>
+                            <li>عدم توفر التكنولوجيا والاستثمارات الكافية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson 2.3 -->
+            <div class="lesson-card" id="lesson2-3">
+                <div class="lesson-header" onclick="toggleLesson('lesson2-3')">
+                    <span class="lesson-icon">⚡</span>
+                    <h3>الدرس الثالث: موارد الطاقة</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): مفهوم الطاقة</h4>
+                    <p>الطاقة هي المحرك الأساسي في حياة الإنسان، تمكن من إنجاز الأعمال عند بذل أي شغل. تستخدم في تشغيل الآلات الصناعية والزراعية، وسائل النقل، التدفئة والتبريد.</p>
+                    <p><strong>من خلال الشكل (أ):</strong> العالم يتجه نحو استخدام مصادر الطاقة المتجددة (الشمس، الرياح، الماء) بسبب محدودية مصادر الطاقة غير المتجددة وتلوثها للبيئة.</p>
+                    <p><strong>ترتيب استخدام مصادر الطاقة تنازلياً:</strong></p>
+                    <ol class="styled-list">
+                        <li>النفط (البترول)</li>
+                        <li>الفحم الحجري</li>
+                        <li>الغاز الطبيعي</li>
+                        <li>الطاقة النووية</li>
+                        <li>الطاقة المتجددة</li>
+                    </ol>
+
+                    <h4 class="section-title-sm">مقارنة بين مصادر الطاقة غير المتجددة:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المصدر</th>
+                                    <th>الخصائص</th>
                                     <th>الاستخدامات</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>الأملاح المعدنية</td><td>البحر الميت</td><td>صناعية، غذائية</td></tr>
-                                <tr><td>الفوسفات</td><td>أريحا، النبي موسى، النقب</td><td>أسمدة كيميوية</td></tr>
-                                <tr><td>الحديد</td><td>وادي الرمن، وادي الجرافي</td><td>صناعة</td></tr>
-                                <tr><td>الحجر الجيري</td><td>قباطية، جماعين، الشيوخ</td><td>حجر بناء</td></tr>
-                                <tr><td>البترول</td><td>غرب البحر الميت، النقب</td><td>طاقة</td></tr>
-                                <tr><td>الغاز الطبيعي</td><td>قبالة الساحل الفلسطيني</td><td>طاقة</td></tr>
-                                <tr><td>اليورانيوم</td><td>صحراء النقب</td><td>طاقة نووية</td></tr>
-                                <tr><td>الصخور الزيتية</td><td>أريحا، النقب</td><td>طاقة</td></tr>
+                                <tr>
+                                    <td>النفط (البترول)</td>
+                                    <td>سائل أسود، 33% من الطاقة المستخدمة عالمياً</td>
+                                    <td>وقود، صناعات بتروكيماوية</td>
+                                </tr>
+                                <tr>
+                                    <td>الغاز الطبيعي</td>
+                                    <td>غاز، أنظف من النفط والفحم</td>
+                                    <td>توليد الكهرباء، التدفئة</td>
+                                </tr>
+                                <tr>
+                                    <td>الفحم الحجري</td>
+                                    <td>صلب، أكثر تلويثاً للبيئة</td>
+                                    <td>توليد الكهرباء، الصناعات الثقيلة</td>
+                                </tr>
+                                <tr>
+                                    <td>اليورانيوم</td>
+                                    <td>معدن مشع</td>
+                                    <td>توليد الطاقة النووية</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title-sm">مقارنة بين مصادر الطاقة المتجددة:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المصدر</th>
+                                    <th>الخصائص</th>
+                                    <th>المميزات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الشمس</td>
+                                    <td>طاقة نظيفة ومتجددة</td>
+                                    <td>لا تنتهي، لا تلوث</td>
+                                </tr>
+                                <tr>
+                                    <td>الماء</td>
+                                    <td>طاقة مائية</td>
+                                    <td>نظيفة، متجددة</td>
+                                </tr>
+                                <tr>
+                                    <td>الرياح</td>
+                                    <td>طاقة حركية</td>
+                                    <td>نظيفة، متجددة</td>
+                                </tr>
+                                <tr>
+                                    <td>الكتل الحيوية</td>
+                                    <td>من المخلفات العضوية</td>
+                                    <td>متجددة، تقلل النفايات</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">⚡ الدرس الثالث: موارد الطاقة</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> مصادر الطاقة غير المتجددة</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🛢️</span> النفط – 33% من الطاقة العالمية</div>
-                        <div class="list-item"><span class="icon">🔥</span> الغاز الطبيعي – أنظف من النفط</div>
-                        <div class="list-item"><span class="icon">⛏️</span> الفحم الحجري – تلوث بيئي كبير</div>
-                        <div class="list-item"><span class="icon">☢️</span> اليورانيوم – طاقة نووية خطيرة</div>
-                    </div>
+            <!-- Lesson 2.4 -->
+            <div class="lesson-card" id="lesson2-4">
+                <div class="lesson-header" onclick="toggleLesson('lesson2-4')">
+                    <span class="lesson-icon">🌳</span>
+                    <h3>الدرس الرابع: الموارد النباتية الطبيعية</h3>
+                    <span class="lesson-toggle">▼</span>
                 </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> مصادر الطاقة المتجددة</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">☀️</span> الطاقة الشمسية</div>
-                        <div class="list-item"><span class="icon">💧</span> طاقة المياه (السدود)</div>
-                        <div class="list-item"><span class="icon">🌬️</span> طاقة الرياح (توربينات)</div>
-                        <div class="list-item"><span class="icon">🌾</span> الكتل الحيوية (وقود حيوي)</div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">مناقشة حول الغابات الاستوائية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>أوراق أشجار الغابات الاستوائية عريضة:</strong> لأنها تساعد في عملية النتح والتبريد في المناخ الحار الرطب</li>
+                        <li><strong>وجود النباتات المتسلقة:</strong> لأنها تحتاج إلى الضوء فتتسلق الأشجار للوصول إليه، ولأن الظروف المناخية من حرارة ورطوبة مناسبة لنموها</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">نشاط (3): فقدان العالم لمساحات من الأشجار</h4>
+                    <div class="danger-box">
+                        <span class="label">📊 الإحصائيات</span>
+                        <ul class="styled-list">
+                            <li>خسر العالم 1,220,000 كم² من الغابات منذ عام 1990م</li>
+                            <li>أمريكا الجنوبية خسرت وحدها 970 ألف كم²</li>
+                            <li>تركيز تناقص مساحة الغابات في أمريكا اللاتينية: بسبب التوسع الزراعي والرعي الجائر وإزالة الغابات</li>
+                        </ul>
                     </div>
+                    <p><strong>فقدان الغطاء النباتي يعني تدمير البيئة:</strong></p>
+                    <ul class="styled-list">
+                        <li>يؤدي إلى انجراف التربة وفقرها</li>
+                        <li>نقص الأكسجين في الجو وزيادة ثاني أكسيد الكربون</li>
+                        <li>خلل في التوازن البيئي</li>
+                        <li>تأثير سلبي على الكائنات الحية التي تعتمد على النباتات</li>
+                    </ul>
+                    <p><strong>المخاطر التي تهدد الموارد النباتية الطبيعية:</strong></p>
+                    <ul class="styled-list">
+                        <li>سوء استخدام الإنسان (التوسع العمراني، الرعي الجائر، قطع الأشجار)</li>
+                        <li>الحرائق (بفعل الإنسان أو بفعل البراكين)</li>
+                        <li>تدهور بيئة الغطاء النباتي (الجفاف، الآفات، الأمراض النباتية)</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">🌳 الدرس الرابع: الموارد النباتية الطبيعية</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أنواع الغطاء النباتي</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌴</span> <strong>الغابات الاستوائية:</strong> الأمازون، الكونغو، إندونيسيا</div>
-                        <div class="list-item"><span class="icon">🍂</span> <strong>الغابات المعتدلة:</strong> متساقطة أو دائمة الخضرة</div>
-                        <div class="list-item"><span class="icon">🌲</span> <strong>الغابات الصنوبرية (التايغا):</strong> شمال الكرة الأرضية</div>
-                        <div class="list-item"><span class="icon">🌾</span> <strong>الحشائش:</strong> السافانا، البراري، البامباس</div>
-                        <div class="list-item"><span class="icon">🌵</span> <strong>الصحاري:</strong> نباتات متكيفة مع الجفاف</div>
+            <!-- Lesson 2.5 -->
+            <div class="lesson-card" id="lesson2-5">
+                <div class="lesson-header" onclick="toggleLesson('lesson2-5')">
+                    <span class="lesson-icon">👥</span>
+                    <h3>الدرس الخامس: الموارد البشرية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): الموارد البشرية وأهميتها</h4>
+                    <ul class="styled-list">
+                        <li>الموارد البشرية هي مجموع السكان داخل أراضي الدولة</li>
+                        <li>تمثل الأساس في استغلال الموارد الأخرى واستثمارها</li>
+                        <li>هي العنصر المفكر والرئيس في الإنتاج والخدمات</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">أسئلة الاختيار من متعدد (صفحة 77)</h4>
+                    <div class="mc-question">
+                        <p class="q">1. ما الفئة التي تشملها الموارد البشرية؟</p>
+                        <div class="options">
+                            <span class="option correct">أ) كل فئات السكان ✓</span>
+                            <span class="option">ب) العمال فقط</span>
+                            <span class="option">ج) الأطفال فقط</span>
+                            <span class="option">د) المسنون فقط</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">2. ما المثال الذي ينطبق على الحقوق الاجتماعية؟</p>
+                        <div class="options">
+                            <span class="option">أ) حرية التعبير</span>
+                            <span class="option">ب) حق التملك</span>
+                            <span class="option correct">ج) توفير الخدمات ✓</span>
+                            <span class="option">د) حق التصويت</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">3. ما المفهوم الذي يعبر عن تثبيت سعر محصول عند هبوط سعره وتقوم الحكومة بدعمه؟</p>
+                        <div class="options">
+                            <span class="option">أ) سياسة التحكم</span>
+                            <span class="option">ب) سياسة التثبيت</span>
+                            <span class="option correct">ج) سياسة تعزيز الأسعار ✓</span>
+                            <span class="option">د) سياسة السوق</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">4. ما الحق الاقتصادي الذي يعد من متطلبات إدارة الموارد البشرية؟</p>
+                        <div class="options">
+                            <span class="option">أ) حرية التنقل</span>
+                            <span class="option">ب) حق التعليم</span>
+                            <span class="option correct">ج) توفير الخدمات الصحية ✓</span>
+                            <span class="option">د) حرية الرأي</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">👥 الدرس الخامس: الموارد البشرية</h3>
-                <div class="card">
-                    <div class="definition">
-                        <span class="term">الموارد البشرية:</span>
-                        <span class="def-text">مجموع السكان داخل أراضي الدولة الذين يشكلون عنصراً أساسياً في البناء والإنتاج والتنمية.</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">القوى العاملة:</span>
-                        <span class="def-text">الفئة العمرية بين 15–65 سنة، القادرون على العمل والراغبون فيه.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== الوحدة الثالثة ==================== -->
-        <section class="unit-section" id="unit3">
+        <!-- =============== UNIT 3 =============== -->
+        <div class="unit-section" id="unit3">
             <div class="unit-header">
-                <div class="unit-icon coral">⚠️</div>
-                <h2 class="unit-title">مخاطر تهدد الأرض <small>الكوارث الطبيعية والبشرية</small></h2>
-            </div>
-
-            <div class="lesson">
-                <h3 class="lesson-title">🌋 الدرس: كوارث جيولوجية (الزلازل والبراكين)</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أحزمة الزلازل في العالم</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🔥</span> <strong>حلقة النار:</strong> حول المحيط الهادئ – 80% من زلازل العالم</div>
-                        <div class="list-item"><span class="icon">🏔️</span> <strong>الالتواءات الألبية:</strong> جبال طارق – الألب – الهيمالايا</div>
-                        <div class="list-item"><span class="icon">🕳️</span> <strong>الأخدود شرق أفريقي:</strong> يشمل الأغوار والبحر الميت</div>
-                        <div class="list-item"><span class="icon">🌊</span> <strong>وسط المحيط الأطلسي:</strong> من الشمال إلى الجنوب</div>
-                    </div>
-                    <div class="highlight-box highlight-coral" style="margin-top:10px;">
-                        <strong>🇵🇸 فلسطين والزلازل:</strong> تقع ضمن حزام الأخدود شرق الأفريقي – مرشحة لتعرضها لزلازل مستقبلاً.
-                    </div>
+                <div class="unit-number">3</div>
+                <div class="unit-title-text">
+                    <h2>الوحدة الثالثة: مخاطر تهدد الأرض</h2>
+                    <p>دراسة الكوارث الجيولوجية والمناخية والتصحر</p>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">🌀 الدرس: كوارث مناخية</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> الأعاصير المدارية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🌪️</span> <strong>هيريكين:</strong> السواحل الشرقية للولايات المتحدة</div>
-                        <div class="list-item"><span class="icon">🌪️</span> <strong>تورنادو:</strong> حوض نهر المسيسيبي</div>
-                        <div class="list-item"><span class="icon">🌪️</span> <strong>تيفون:</strong> جنوب شرق آسيا</div>
-                    </div>
+            <!-- Lesson 3.1 -->
+            <div class="lesson-card open" id="lesson3-1">
+                <div class="lesson-header" onclick="toggleLesson('lesson3-1')">
+                    <span class="lesson-icon">⚠️</span>
+                    <h3>الدرس الأول: الكوارث (تمهيد)</h3>
+                    <span class="lesson-toggle">▼</span>
                 </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> ظاهرة الاحتباس الحراري</div>
-                    <p style="color:var(--text-secondary);">ارتفاع درجة حرارة الأرض نتيجة زيادة الغازات الدفيئة (CO₂، الميثان، أكسيد النيتروجين، CFC).</p>
-                    <div class="highlight-box highlight-coral" style="margin-top:10px;">
-                        <strong>جهود دولية:</strong> اتفاقية كيوتو (1997)، مؤتمر مجموعة الثماني (2005). رفضت الولايات المتحدة التوقيع رغم مساهمتها بـ25% من الانبعاثات.
+                <div class="lesson-body">
+                    <div class="info-box">
+                        <span class="label">📌 ملاحظة</span>
+                        <p>لم ترد أسئلة محددة في هذا الدرس في النص المرفق.</p>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> تأكل طبقة الأوزون</div>
-                    <p style="color:var(--text-secondary);">طبقة الأوزون (O₃) على ارتفاع 20–25 كم تمنع الأشعة فوق البنفسجية. أسباب التأكل: مركبات CFC، الأكاسيد، التجارب النووية.</p>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">🏜️ الدرس: التصحر</h3>
-                <div class="card">
-                    <div class="definition">
-                        <span class="term">التصحر:</span>
-                        <span class="def-text">تحول الأراضي الخصبة إلى أراضٍ صحراوية نتيجة عوامل طبيعية وبشرية.</span>
+            <!-- Lesson 3.2 -->
+            <div class="lesson-card" id="lesson3-2">
+                <div class="lesson-header" onclick="toggleLesson('lesson3-2')">
+                    <span class="lesson-icon">🌋</span>
+                    <h3>الدرس الثاني: كوارث جيولوجية (الزلازل والبراكين)</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">فلسطين مرشحة للزلازل - على ماذا بنى العلماء توقعاتهم؟</h4>
+                    <ul class="styled-list">
+                        <li>وجود فلسطين على حزام الأخدود الشرقي الإفريقي</li>
+                        <li>وجود الصدوع والانكسارات في منطقة الأغوار والبحر الميت</li>
+                        <li>تعرض المنطقة لزلازل تاريخية سابقة</li>
+                    </ul>
+                    <p><strong>متى تتوقع أن تتعرض فلسطين لزلزال؟</strong></p>
+                    <div class="danger-box">
+                        <span class="label">⚠️ التوقع</span>
+                        <p>لا يمكن تحديد توقيت دقيق، لكن العلماء يتوقعون تعرضها لزلزال قوي في أي وقت.</p>
                     </div>
-                    <p style="color:var(--text-secondary); margin-top:10px;"><strong>المكافحة:</strong> مشاريع التشجير، مصدات الرياح، قوانين حماية الغطاء النباتي، تنظيم الرعي، صور الأقمار الصناعية.</p>
+                    <h4 class="section-title-sm">أشهر ثلاث دول تتعرض للزلازل في كل حزام زلزالي:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>الحزام الزلزالي</th>
+                                    <th>الدول</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>حزام حلقة النار (المحيط الهادئ)</td>
+                                    <td>اليابان، إندونيسيا، تشيلي</td>
+                                </tr>
+                                <tr>
+                                    <td>حزام الالتواءات الألبية</td>
+                                    <td>إيطاليا، تركيا، إيران</td>
+                                </tr>
+                                <tr>
+                                    <td>حزام وسط المحيط الأطلسي</td>
+                                    <td>أيسلندا، البرازيل، جنوب أفريقيا</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title-sm">طرق السلامة من مخاطر الزلازل:</h4>
+                    <ul class="styled-list">
+                        <li>الرصد المستمر للهزات بواسطة جهاز السيزموغراف</li>
+                        <li>التأسيس الهندسي للمباني</li>
+                        <li>صيانة المباني القديمة</li>
+                        <li>الاطلاع على نشرات التوعية</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">نشاط (4): توزيع البراكين</h4>
+                    <div class="activity-box">
+                        <span class="label">📌 مدى التطابق بين أحزمة البراكين والزلازل</span>
+                        <p>هناك تطابق كبير بينهما، والسبب أن كلاً من الزلازل والبراكين تحدث على حدود الصفائح التكتونية.</p>
+                    </div>
+                    <div class="activity-box">
+                        <span class="label">📌 هل فلسطين معرضة لثوران البراكين؟</span>
+                        <p>فلسطين ليست معرضة للبراكين حالياً، لأنها لا تقع على أحزمة براكين نشطة، والبراكين التي كانت موجودة في المنطقة انطفأت منذ زمن طويل.</p>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ==================== الوحدة الرابعة ==================== -->
-        <section class="unit-section" id="unit4">
+            <!-- Lesson 3.3 -->
+            <div class="lesson-card" id="lesson3-3">
+                <div class="lesson-header" onclick="toggleLesson('lesson3-3')">
+                    <span class="lesson-icon">🌪️</span>
+                    <h3>الدرس الثالث: كوارث مناخية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">أسئلة الاختيار من متعدد (صفحة 98)</h4>
+                    <div class="mc-question">
+                        <p class="q">1. أيّ المناطق تشتهر بكثرة حدوث الأعاصير؟</p>
+                        <div class="options">
+                            <span class="option">أ) القطبية</span>
+                            <span class="option">ب) المعتدلة</span>
+                            <span class="option correct">ج) المدارية ✓</span>
+                            <span class="option">د) الجبلية</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">2. ما الهدف من اتفاقية كيوتو عام 1997م؟</p>
+                        <div class="options">
+                            <span class="option">أ) مكافحة التصحر</span>
+                            <span class="option">ب) حماية طبقة الأوزون</span>
+                            <span class="option">ج) مكافحة الجفاف</span>
+                            <span class="option correct">د) مكافحة الاحتباس الحراري ✓</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">3. أيّ من طبقات الغلاف الجوي تعمل على حماية سطح الأرض من الأشعة الشمسية الضارة؟</p>
+                        <div class="options">
+                            <span class="option">أ) التروبوسفير</span>
+                            <span class="option correct">ب) الأوزون ✓</span>
+                            <span class="option">ج) الستراتوسفير</span>
+                            <span class="option">د) الميزوسفير</span>
+                        </div>
+                    </div>
+                    <div class="mc-question">
+                        <p class="q">4. أين تحدث ظاهرة النينو؟</p>
+                        <div class="options">
+                            <span class="option correct">أ) المحيط الهادئ ✓</span>
+                            <span class="option">ب) المحيط الأطلسي</span>
+                            <span class="option">ج) المحيط الهندي</span>
+                            <span class="option">د) البحر المتوسط</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson 3.4 -->
+            <div class="lesson-card" id="lesson3-4">
+                <div class="lesson-header" onclick="toggleLesson('lesson3-4')">
+                    <span class="lesson-icon">🏜️</span>
+                    <h3>الدرس الرابع: التصحر</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">مكافحة التصحر:</h4>
+                    <div class="success-box">
+                        <span class="label">🌱 إجراءات المكافحة</span>
+                        <ul class="styled-list">
+                            <li>مشاريع التشجير ومصدات الرياح</li>
+                            <li>سن القوانين للحفاظ على الغطاء النباتي والتربة</li>
+                            <li>نشر الوعي بمخاطر التصحر</li>
+                            <li>استخدام صور الأقمار الصناعية لمتابعة التغيرات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============== UNIT 4 =============== -->
+        <div class="unit-section" id="unit4">
             <div class="unit-header">
-                <div class="unit-icon green">✈️</div>
-                <h2 class="unit-title">السياحة <small>المفهوم، المقومات، الأنواع</small></h2>
-            </div>
-
-            <div class="lesson">
-                <h3 class="lesson-title">🌍 الدرس: السياحة مفهومها وتطورها وآثارها</h3>
-                <div class="card">
-                    <div class="definition">
-                        <span class="term">السياحة:</span>
-                        <span class="def-text">انتقال الإنسان من مكان إقامته المعتاد إلى مكان آخر لقضاء فترة من الزمن بغرض الترفيه أو المعرفة أو العلاج أو العمل.</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">الجغرافيا السياحية:</span>
-                        <span class="def-text">فرع من الجغرافيا البشرية يدرس المواقع السياحية والحركة السياحية وأثرها على المكان.</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> السياحة في فلسطين والتحديات</div>
-                    <div class="highlight-box highlight-coral">
-                        يعاني القطاع السياحي من الاحتلال: مصادرة الأراضي، الحواجز، الجدار الفاصل، تدمير المواقع الأثرية.
-                    </div>
+                <div class="unit-number">4</div>
+                <div class="unit-title-text">
+                    <h2>الوحدة الرابعة: السياحة</h2>
+                    <p>مفهوم السياحة وتطورها وآثارها ومقوماتها وأنواعها</p>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">🏖️ الدرس: مقومات السياحة</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> المقومات الطبيعية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">☀️</span> المناخ المتباين</div>
-                        <div class="list-item"><span class="icon">🌊</span> المسطحات المائية</div>
-                        <div class="list-item"><span class="icon">🪨</span> التضاريس (الكهوف، الأقواس الصخرية)</div>
+            <!-- Lesson 4.1 -->
+            <div class="lesson-card open" id="lesson4-1">
+                <div class="lesson-header" onclick="toggleLesson('lesson4-1')">
+                    <span class="lesson-icon">🧳</span>
+                    <h3>الدرس الأول: السياحة مفهومها وتطورها وآثارها</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">أسئلة الاختيار من متعدد (صفحة 113)</h4>
+                    <div class="mc-question">
+                        <p class="q">1. ما نوع أثر السياحة في تنشيط المهرجانات المحلية والدولية؟</p>
+                        <div class="options">
+                            <span class="option">أ) أثر اقتصادي</span>
+                            <span class="option">ب) أثر اجتماعي</span>
+                            <span class="option">ج) أثر بيئي</span>
+                            <span class="option correct">د) أثر ثقافي ✓</span>
+                        </div>
                     </div>
-                    <div class="card-title" style="margin-top:15px;"><span class="bullet"></span> المقومات البشرية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🏛️</span> المواقع الأثرية والتاريخية</div>
-                        <div class="list-item"><span class="icon">🎭</span> التراث الثقافي والحضاري</div>
-                        <div class="list-item"><span class="icon">🏨</span> الخدمات السياحية</div>
-                        <div class="list-item"><span class="icon">🕊️</span> الأمن والاستقرار السياسي</div>
+
+                    <h4 class="section-title-sm">السؤال الثاني: مؤشرات الاهتمام المتزايد بالسياحة</h4>
+                    <ul class="styled-list">
+                        <li>تطور وسائل النقل والمواصلات</li>
+                        <li>تحسن المستوى المعيشي والدخل</li>
+                        <li>زيادة أوقات الفراغ والإجازات</li>
+                        <li>سهولة الحصول على المعلومات عن الوجهات السياحية</li>
+                        <li>تنوع الخدمات السياحية والترفيهية</li>
+                        <li>ازدياد الوعي بأهمية السياحة كوسيلة للترفيه والتعلم</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">السؤال الثالث: تعريف المصطلحات</h4>
+                    <div class="info-box">
+                        <span class="label">📖 الجغرافيا السياحية</span>
+                        <p>فرع من فروع الجغرافيا البشرية يدرس المواقع السياحية، وخصائصها الطبيعية والبشرية، وتوزيعها الجغرافي، وحركة السياح.</p>
+                    </div>
+                    <div class="info-box">
+                        <span class="label">📖 السياحة</span>
+                        <p>الانتقال المؤقت للأفراد من أماكن إقامتهم المعتادة إلى أماكن أخرى بقصد الترفيه أو العلاج أو التعليم أو الدين أو الاستكشاف، والإقامة فيها مدة لا تقل عن 24 ساعة ولا تزيد عن سنة.</p>
+                    </div>
+
+                    <h4 class="section-title-sm">السؤال الرابع: العلاقة بين الجغرافيا السياحية وعلوم أخرى</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>العلم</th>
+                                    <th>العلاقة بالجغرافيا السياحية</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الإحصاء</td>
+                                    <td>يقدم بيانات وإحصاءات عن أعداد السياح، النفقات السياحية، الطاقة الاستيعابية للفنادق</td>
+                                </tr>
+                                <tr>
+                                    <td>المناخ</td>
+                                    <td>يحدد الأقاليم المناخية ومدى جاذبيتها للسياح واحتياجاتهم</td>
+                                </tr>
+                                <tr>
+                                    <td>الاقتصاد</td>
+                                    <td>يدرس الأثر الاقتصادي للسياحة، حجم الاستثمارات، العائدات، فرص العمل</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title-sm">السؤال الخامس: تعليل التطور الكبير للسياحة في العصر الحديث</h4>
+                    <ul class="styled-list">
+                        <li>تطور وسائل النقل (الطائرات، السفن السياحية، القطارات السريعة)</li>
+                        <li>زيادة الدخل الفردي وارتفاع مستوى المعيشة</li>
+                        <li>سهولة الحصول على تأشيرات السفر</li>
+                        <li>تطور وسائل الإعلام والتواصل التي تروج للسياحة</li>
+                        <li>زيادة الوعي الثقافي والرغبة في التعرف على ثقافات الآخرين</li>
+                        <li>الاستقرار السياسي في معظم الدول</li>
+                    </ul>
+
+                    <h4 class="section-title-sm">السؤال السادس: أثر السياحة على:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المجال</th>
+                                    <th>الأثر</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>البيئة الطبيعية</td>
+                                    <td>قد تؤدي إلى تلوث بيئي أو على العكس المساهمة في حماية المحميات الطبيعية</td>
+                                </tr>
+                                <tr>
+                                    <td>الوضع الاقتصادي</td>
+                                    <td>توفير فرص عمل، دخل للدولة، تنشيط الاستثمار، تنويع مصادر الدخل</td>
+                                </tr>
+                                <tr>
+                                    <td>الخدمات</td>
+                                    <td>تطوير البنية التحتية، تحسين الخدمات (فنادق، مطاعم، مواصلات، اتصالات)</td>
+                                </tr>
+                                <tr>
+                                    <td>الثقافة والاجتماع</td>
+                                    <td>تعزيز التبادل الثقافي، نشر التسامح، إحياء التراث، لكن قد تؤدي لتغيير العادات والتقاليد</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title-sm">السؤال السابع: ممارسات الاحتلال الصهيوني التي تدمر السياحة الفلسطينية</h4>
+                    <div class="danger-box">
+                        <span class="label">🚫 ممارسات الاحتلال</span>
+                        <ul class="styled-list">
+                            <li>بناء جدار الفصل العنصري الذي قطع المسافات بين المدن الفلسطينية</li>
+                            <li>إقامة المستوطنات على الأراضي الفلسطينية والمقدسات</li>
+                            <li>فرض القيود على حركة السياح والمواطنين في الأراضي الفلسطينية</li>
+                            <li>السيطرة على الموارد المائية والتاريخية في فلسطين</li>
+                            <li>تشويه الصورة السياحية لفلسطين عالمياً</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">🧭 الدرس: أنواع السياحة</h3>
-                <div class="card">
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🕌</span> <strong>الدينية:</strong> القدس، مكة، الفاتيكان</div>
-                        <div class="list-item"><span class="icon">💆</span> <strong>العلاجية:</strong> البحر الميت، الينابيع الحارة</div>
-                        <div class="list-item"><span class="icon">🎢</span> <strong>الترفيهية:</strong> الشواطئ، المنتجعات</div>
-                        <div class="list-item"><span class="icon">⛷️</span> <strong>الرياضية:</strong> التزلج، الغوص، التسلق</div>
-                        <div class="list-item"><span class="icon">🏛️</span> <strong>الثقافية:</strong> المتاحف، المهرجانات</div>
-                        <div class="list-item"><span class="icon">🌲</span> <strong>البيئية:</strong> المحميات، الغابات</div>
+            <!-- Lesson 4.2 -->
+            <div class="lesson-card" id="lesson4-2">
+                <div class="lesson-header" onclick="toggleLesson('lesson4-2')">
+                    <span class="lesson-icon">🏖️</span>
+                    <h3>الدرس الثاني: مقومات السياحة</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">نشاط (1): ناقش ونفسر</h4>
+                    <ul class="styled-list">
+                        <li><strong>أريحا والأغوار مشاتٍ جاذبة للسياح في الشتاء:</strong> بسبب مناخها الدافئ وانخفاضها عن سطح البحر</li>
+                        <li><strong>جبال فلسطين وسواحلها مصايف تجذب السياح في الصيف:</strong> لاعتدال درجات الحرارة وجمال المناظر الطبيعية</li>
+                    </ul>
+                    <h4 class="section-title-sm">مقومات السياحة الطبيعية:</h4>
+                    <ul class="styled-list">
+                        <li>المناخ (اعتدال الحرارة، سطوع الشمس)</li>
+                        <li>المسطحات المائية (بحار، بحيرات، أنهار، ينابيع)</li>
+                        <li>المظاهر الجيومورفولوجية (الأقواس الصخرية، المسلات، الكهوف الكارستية)</li>
+                        <li>التضاريس (جبال، سهول، غابات)</li>
+                        <li>الشواطئ والمنتجعات</li>
+                    </ul>
+                    <h4 class="section-title-sm">مقومات السياحة البشرية:</h4>
+                    <ul class="styled-list">
+                        <li>المعالم الأثرية والتاريخية</li>
+                        <li>المهرجانات والمناسبات الثقافية</li>
+                        <li>الخدمات السياحية (فنادق، مطاعم، مواصلات)</li>
+                        <li>الأسواق التقليدية والحرف اليدوية</li>
+                        <li>المأكولات المحلية</li>
+                        <li>التراث الشعبي والعادات والتقاليد</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4.3 -->
+            <div class="lesson-card" id="lesson4-3">
+                <div class="lesson-header" onclick="toggleLesson('lesson4-3')">
+                    <span class="lesson-icon">🎯</span>
+                    <h3>الدرس الثالث: أنواع السياحة</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <div class="answer-highlight">
+                        <p><strong>أنواع السياحة تشمل:</strong></p>
+                    </div>
+                    <ul class="styled-list">
+                        <li><strong>سياحة دينية:</strong> زيارة الأماكن المقدسة</li>
+                        <li><strong>سياحة علاجية:</strong> الينابيع المعدنية</li>
+                        <li><strong>سياحة ترفيهية:</strong> الشواطئ والمنتجعات</li>
+                        <li><strong>سياحة ثقافية:</strong> المتاحف والآثار</li>
+                        <li><strong>سياحة رياضية:</strong> التزلج، الغوص، تسلق الجبال</li>
+                        <li><strong>سياحة بيئية:</strong> المحميات الطبيعية</li>
+                        <li><strong>سياحة مؤتمرات:</strong> المؤتمرات والاجتماعات</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4.4 -->
+            <div class="lesson-card" id="lesson4-4">
+                <div class="lesson-header" onclick="toggleLesson('lesson4-4')">
+                    <span class="lesson-icon">🕌</span>
+                    <h3>الدرس الرابع: السياحة في الوطن العربي</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <div class="info-box">
+                        <span class="label">📌 ملاحظة</span>
+                        <p>لم ترد أسئلة محددة في هذا الدرس في النص المرفق.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- ==================== الوحدة الخامسة ==================== -->
-        <section class="unit-section" id="unit5">
+        <!-- =============== UNIT 5 =============== -->
+        <div class="unit-section" id="unit5">
             <div class="unit-header">
-                <div class="unit-icon purple">🏛️</div>
-                <h2 class="unit-title">الجغرافيا السياسية <small>الدولة، الحدود، والمشكلات</small></h2>
-            </div>
-
-            <div class="lesson">
-                <h3 class="lesson-title">🗺️ الدرس: الجغرافيا السياسية والدولة</h3>
-                <div class="card">
-                    <div class="definition">
-                        <span class="term">الدولة:</span>
-                        <span class="def-text">وحدة سياسية تجتمع فيها الناس لتحقيق وجودهم المادي والسعادة (أرسطو).</span>
-                    </div>
-                    <div class="definition">
-                        <span class="term">الجغرافيا السياسية:</span>
-                        <span class="def-text">فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتأثيرها في قوتها السياسية. تبلور المفهوم عام 1897 على يد فريدريك راتزل.</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> مقومات الدولة الأساسية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🗺️</span> <strong>الأرض (الإقليم):</strong> مساحة محددة بحدود معينة</div>
-                        <div class="list-item"><span class="icon">👥</span> <strong>السكان:</strong> عددهم وتوزيعهم</div>
-                        <div class="list-item"><span class="icon">⚖️</span> <strong>السلطة (الحكومة):</strong> نظام سياسي يدير الدولة</div>
-                        <div class="list-item"><span class="icon">🛡️</span> <strong>السيادة:</strong> الاستقلال الداخلي والخارجي</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أنواع الحدود السياسية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🏞️</span> <strong>طبيعية:</strong> أنهار، جبال، بحار</div>
-                        <div class="list-item"><span class="icon">📏</span> <strong>بشرية (اصطناعية):</strong> خطوط طول وعرض</div>
-                        <div class="list-item"><span class="icon">🕌</span> <strong>عرقية وثقافية:</strong> حسب اللغة والدين</div>
-                    </div>
+                <div class="unit-number">5</div>
+                <div class="unit-title-text">
+                    <h2>الوحدة الخامسة: الجغرافيا السياسية</h2>
+                    <p>دراسة الدولة والحدود والمشكلات السياسية</p>
                 </div>
             </div>
 
-            <div class="lesson">
-                <h3 class="lesson-title">⚔️ الدرس: المشكلات السياسية</h3>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> أمثلة على مشكلات حدودية</div>
-                    <div class="list-grid">
-                        <div class="list-item"><span class="icon">🇲🇦</span> <strong>سبتة ومليلة:</strong> مدينتان مغربيتان تحت الاحتلال الإسباني</div>
-                        <div class="list-item"><span class="icon">🇬🇮</span> <strong>جبل طارق:</strong> تحت الاحتلال البريطاني منذ 1704م</div>
-                        <div class="list-item"><span class="icon">🇮🇳</span> <strong>كشمير:</strong> متنازع عليها بين الهند وباكستان</div>
-                        <div class="list-item"><span class="icon">🇩🇿</span> <strong>تندوف وبشار:</strong> نزاع حدودي بين المغرب والجزائر</div>
-                    </div>
+            <!-- Lesson 5.1 -->
+            <div class="lesson-card open" id="lesson5-1">
+                <div class="lesson-header" onclick="toggleLesson('lesson5-1')">
+                    <span class="lesson-icon">🏛️</span>
+                    <h3>الدرس الأول: الجغرافيا السياسية</h3>
+                    <span class="lesson-toggle">▼</span>
                 </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> المشكلات المائية</div>
-                    <div class="highlight-box highlight-blue" style="margin-bottom:10px;">
-                        <strong>💧 نهر النيل:</strong> دول المنبع (إثيوبيا، أوغندا...) تقيم سدوداً تؤثر على دول المصب (مصر والسودان). مثال: سد النهضة الإثيوبي.
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">مقارنة بين ما قاله أرسطو وابن خلدون حول الدولة:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>أرسطو</th>
+                                    <th>ابن خلدون</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الدولة يجتمع فيها الناس من أجل وجودهم المادي وتحقيق السعادة</td>
+                                    <td>الدولة مؤسسة بشرية ووحدة سياسية واجتماعية لا تقوم الحضارة إلا بها</td>
+                                </tr>
+                                <tr>
+                                    <td>يركز على الغاية من وجود الدولة (السعادة)</td>
+                                    <td>يركز على دور الدولة في بناء الحضارة</td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>الدولة دائمة التعرض للتبدل والتغيير</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="highlight-box highlight-blue" style="margin-bottom:10px;">
-                        <strong>💧 دجلة والفرات:</strong> تركيا (المنبع) وسوريا تقيمان سدوداً (أتاتورك، الأسد) تؤثر على العراق.
+                    <p><strong>أي فروع الجغرافيا تهتم بدراسة الوحدات السياسية؟</strong></p>
+                    <div class="answer-highlight">
+                        <p>الجغرافيا السياسية (فرع من فروع الجغرافيا البشرية)</p>
                     </div>
-                    <div class="highlight-box highlight-coral">
-                        <strong>💧 الأطماع الصهيونية في المياه:</strong> مشروع ناقل المياه القطري (1964)، السيطرة على حصة الفلسطينيين من نهر الأردن، محاولة السيطرة على نهر الليطاني، السيطرة على أحواض المياه الجوفية الفلسطينية.
+                    <h4 class="section-title-sm">مقومات الدولة الأساسية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>الأرض:</strong> مساحة محددة بحدود سياسية</li>
+                        <li><strong>السكان:</strong> مجموعة بشرية تعيش على هذه الأرض</li>
+                        <li><strong>السيادة:</strong> السلطة السياسية التي تحكم الدولة</li>
+                        <li><strong>الاعتراف الدولي:</strong> اعتراف الدول الأخرى بالدولة</li>
+                    </ul>
+                    <h4 class="section-title-sm">تصنيف الدول حسب:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المعيار</th>
+                                    <th>التصنيف</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>الموقع الجغرافي</td>
+                                    <td>ساحلية، داخلية، جزرية</td>
+                                </tr>
+                                <tr>
+                                    <td>المساحة</td>
+                                    <td>كبيرة، متوسطة، صغيرة</td>
+                                </tr>
+                                <tr>
+                                    <td>الشكل</td>
+                                    <td>منتظم، غير منتظم (ممتد، مجزأ، محصور)</td>
+                                </tr>
+                                <tr>
+                                    <td>النظام السياسي</td>
+                                    <td>ملكي، جمهوري</td>
+                                </tr>
+                                <tr>
+                                    <td>النظام الإداري</td>
+                                    <td>مركزي، لا مركزي (فيدرالي)</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="bullet"></span> نهر الأردن</div>
-                    <p style="color:var(--text-secondary);">ينبع من سفوح جبل الشيخ. روافده: بانياس (سوريا)، الدان (فلسطين)، الحاصباني (لبنان). يمر ببحيرة طبريا. روافده بعد طبريا: اليرموك، الزرقاء، وادي جالود، الفارعة، القلط. يصب في البحر الميت.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- تذييل -->
-        <footer class="footer">
-            <p>📚 موسوعة الجغرافيا – تصميم أنيق وحديث لعرض المحتوى الجغرافي</p>
-            <p style="font-size:0.75rem; margin-top:8px;">الوحدة الأولى: المناخ | الثانية: الموارد | الثالثة: المخاطر | الرابعة: السياحة | الخامسة: السياسية</p>
-        </footer>
+            <!-- Lesson 5.2 -->
+            <div class="lesson-card" id="lesson5-2">
+                <div class="lesson-header" onclick="toggleLesson('lesson5-2')">
+                    <span class="lesson-icon">📏</span>
+                    <h3>الدرس الثاني: الحدود السياسية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">المسمى الذي يطلق على الخطوط التي تمثل الشكل العام للدولة ومساحتها:</h4>
+                    <div class="answer-highlight">
+                        <p><strong>الحدود السياسية:</strong> وهي خطوط تفصل بين الدول المتجاورة</p>
+                    </div>
+                    <h4 class="section-title-sm">الآثار المترتبة عن الخطوط التي تفصل بين الدول العربية:</h4>
+                    <div class="danger-box">
+                        <span class="label">⚠️ الآثار</span>
+                        <ul class="styled-list">
+                            <li><strong>آثار سلبية:</strong> تجزئة الأمة العربية، قطع الروابط الجغرافية والاقتصادية والثقافية بين الدول العربية</li>
+                            <li>تعود هذه الحدود في كثير من الأحيان إلى مخلفات الاستعمار التي رسمت حدوداً مصطنعة</li>
+                            <li>تؤدي إلى صراعات حدودية بين الدول العربية</li>
+                        </ul>
+                    </div>
+                    <h4 class="section-title-sm">أنواع الحدود السياسية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>حدود طبيعية:</strong> الأنهار، الجبال، البحار</li>
+                        <li><strong>حدود اصطناعية:</strong> خطوط مستقيمة رسمها الاستعمار</li>
+                        <li><strong>حدود فلكية:</strong> خطوط الطول ودوائر العرض</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 5.3 -->
+            <div class="lesson-card" id="lesson5-3">
+                <div class="lesson-header" onclick="toggleLesson('lesson5-3')">
+                    <span class="lesson-icon">⚔️</span>
+                    <h3>الدرس الثالث: المشكلات السياسية</h3>
+                    <span class="lesson-toggle">▼</span>
+                </div>
+                <div class="lesson-body">
+                    <h4 class="section-title-sm">أسباب تؤدي إلى حدوث مشكلات سياسية:</h4>
+                    <ul class="styled-list">
+                        <li>مخلفات الاستعمار وترسيم الحدود المصطنعة</li>
+                        <li>تضارب المصالح بين الدول</li>
+                        <li>التنافس على الموارد الطبيعية (المياه، النفط، المعادن)</li>
+                        <li>الخلافات الأيديولوجية</li>
+                        <li>النزاعات القومية والدينية</li>
+                        <li>الطموحات التوسعية لبعض الدول</li>
+                    </ul>
+                    <h4 class="section-title-sm">نتائج المشكلات السياسية:</h4>
+                    <ul class="styled-list">
+                        <li>توتر العلاقات بين الدول</li>
+                        <li>نشوب الحروب والصراعات</li>
+                        <li>تدمير البنية التحتية والممتلكات</li>
+                        <li>خسائر بشرية ومادية</li>
+                        <li>نزوح السكان واللجوء</li>
+                    </ul>
+                    <h4 class="section-title-sm">مشاريع سدود على نهر النيل تهدد المصالح المائية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>سد النهضة الإثيوبي</strong> (سد الألفية) على النيل الأزرق</li>
+                        <li><strong>سدود إثيوبية أخرى</strong> على روافد النيل</li>
+                    </ul>
+                    <h4 class="section-title-sm">المشكلات الحدودية المذكورة:</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المنطقة</th>
+                                    <th>النزاع</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>سبتة ومليلة</td>
+                                    <td>مدينتان إسبانيتان على الساحل المغربي، تطالب المغرب باستعادتهما</td>
+                                </tr>
+                                <tr>
+                                    <td>جبل طارق</td>
+                                    <td>مستعمرة بريطانية في الطرف الجنوبي من إسبانيا، تطالب إسبانيا باستعادتها</td>
+                                </tr>
+                                <tr>
+                                    <td>كشمير</td>
+                                    <td>منطقة متنازع عليها بين الهند وباكستان</td>
+                                </tr>
+                                <tr>
+                                    <td>تندوف وبشار</td>
+                                    <td>منطقة حدودية متنازع عليها بين المغرب والجزائر</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="section-title-sm">المشكلات المائية:</h4>
+                    <ul class="styled-list">
+                        <li><strong>حوض نهر النيل:</strong> خلاف بين دول المنبع والمصب حول حصص المياه</li>
+                        <li><strong>حوض نهري دجلة والفرات:</strong> خلاف بين تركيا وسوريا والعراق حول حصص المياه</li>
+                    </ul>
+                    <h4 class="section-title-sm">الأطماع الصهيونية في المياه الفلسطينية والعربية:</h4>
+                    <div class="danger-box">
+                        <span class="label">🚫 الأطماع الصهيونية</span>
+                        <ul class="styled-list">
+                            <li>مشروع ناقل المياه القطري 1964م لتحويل مياه الأردن للنقب</li>
+                            <li>الاستيلاء على حصة الفلسطينيين من مياه نهر الأردن</li>
+                            <li>محاولة السيطرة على نهر الليطاني في جنوب لبنان</li>
+                            <li>السيطرة على أحواض المياه الجوفية في فلسطين</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🌍 إجابات كتاب الدراسات الجغرافية - الصف الثاني عشر | مرجع دراسي شامل لجميع الوحدات</p>
+            <p style="margin-top:6px; font-size:0.75rem; opacity:0.7;">تم إعداد هذه الصفحة للمساعدة في المراجعة والدراسة</p>
+        </div>
 
     </div>
 
     <script>
-        // تفعيل شريط التنقل الجانبي
-        const navDots = document.querySelectorAll('.nav-dot');
-        const sections = [
-            document.getElementById('unit1'),
-            document.getElementById('unit2'),
-            document.getElementById('unit3'),
-            document.getElementById('unit4'),
-            document.getElementById('unit5')
+        // Navigation items
+        const navItems = [
+            { id: 'unit1', label: '🌍 الوحدة الأولى', title: 'الجغرافيا المناخية' },
+            { id: 'unit2', label: '⛏️ الوحدة الثانية', title: 'الموارد الطبيعية والبشرية' },
+            { id: 'unit3', label: '⚠️ الوحدة الثالثة', title: 'مخاطر تهدد الأرض' },
+            { id: 'unit4', label: '🧳 الوحدة الرابعة', title: 'السياحة' },
+            { id: 'unit5', label: '🏛️ الوحدة الخامسة', title: 'الجغرافيا السياسية' },
         ];
 
-        navDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                sections[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+        // Generate nav links
+        const navInner = document.getElementById('navInner');
+        navItems.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'nav-link';
+            btn.setAttribute('data-unit', item.id);
+            btn.textContent = `${item.label}: ${item.title}`;
+            btn.addEventListener('click', () => switchUnit(item.id));
+            navInner.appendChild(btn);
         });
 
-        // تحديث النقطة النشطة عند التمرير
-        const observerOptions = {
-            root: null,
-            rootMargin: '-30% 0px -60% 0px',
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    navDots.forEach((dot, i) => {
-                        const unitNum = i + 1;
-                        if (id === `unit${unitNum}`) {
-                            dot.classList.add('active');
-                        } else {
-                            dot.classList.remove('active');
-                        }
-                    });
-                }
+        // Switch unit function
+        function switchUnit(unitId) {
+            // Hide all units
+            document.querySelectorAll('.unit-section').forEach(section => {
+                section.classList.remove('active');
             });
-        }, observerOptions);
+            // Show selected unit
+            const targetUnit = document.getElementById(unitId);
+            if (targetUnit) {
+                targetUnit.classList.add('active');
+            }
+            // Update nav active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.querySelector(`.nav-link[data-unit="${unitId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-        sections.forEach(section => {
-            if (section) observer.observe(section);
+        // Toggle lesson function
+        function toggleLesson(lessonId) {
+            const card = document.getElementById(lessonId);
+            if (card) {
+                card.classList.toggle('open');
+            }
+        }
+
+        // Set initial active nav
+        document.querySelector('.nav-link[data-unit="unit1"]').classList.add('active');
+
+        // Auto-open first lesson of each unit when switching
+        document.querySelectorAll('.unit-section').forEach(section => {
+            const firstCard = section.querySelector('.lesson-card');
+            if (firstCard && !firstCard.classList.contains('open')) {
+                // Don't auto-open by default, keep manual control
+            }
         });
     </script>
-
 </body>
 </html>
