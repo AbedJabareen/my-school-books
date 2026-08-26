@@ -1938,11 +1938,7 @@
                 card.classList.toggle('open');
             }
         }
-
-        // Set initial active nav
         document.querySelector('.nav-link[data-unit="unit1"]').classList.add('active');
-
-        // Auto-open first lesson of each unit when switching
         document.querySelectorAll('.unit-section').forEach(section => {
             const firstCard = section.querySelector('.lesson-card');
             if (firstCard && !firstCard.classList.contains('open')) {
